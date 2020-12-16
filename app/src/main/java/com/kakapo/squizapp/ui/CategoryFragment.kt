@@ -19,14 +19,47 @@ import com.kakapo.squizapp.model.Category
 
 class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragment() {
 
-    lateinit var database:FirebaseDatabase
-    lateinit var category: DatabaseReference
+    lateinit var myFragment: View
+    lateinit var listCategory: RecyclerView
+    lateinit var layoutManager: RecyclerView.LayoutManager
+    lateinit var adapter:FirebaseRecyclerAdapter<Category, ViewHolder>
+
+    lateinit var database: FirebaseDatabase
+    lateinit var categories: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         database = FirebaseDatabase.getInstance()
-        category =database.getReference("Category")
+        categories =database.getReference("Category")
+    }
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
+
+        lateinit var categoryImage: ImageView
+        lateinit var categoryName: TextView
+
+        private lateinit var itemClickListener: ItemClickListener
+
+        init {
+            categoryImage = itemView.findViewById(R.id.category_image)
+            categoryName = itemView.findViewById(R.id.category_name)
+
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(view: View) {
+            itemClickListener.onClickListener(view, adapterPosition, false)
+        }
+
+        fun setItemOnclickListener(itemClickListener: ItemClickListener){
+            this.itemClickListener = itemClickListener
+        }
+
+    }
+    
+    private fun loadCategories() {
+
     }
 
     companion object{
