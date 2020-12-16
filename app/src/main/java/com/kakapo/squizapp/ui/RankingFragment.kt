@@ -14,7 +14,7 @@ class RankingFragment : Fragment() {
     lateinit var myFragment: View
     lateinit var rankingList: RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var adapter: FirebaseRecyclerAdapter<Category, CategoryFragment.ViewHolder>
+//    lateinit var adapter: FirebaseRecyclerAdapter<Category, CategoryFragment.ViewHolder>
     lateinit var database: FirebaseDatabase
     lateinit var questionScore: DatabaseReference
     lateinit var rankingTable: DatabaseReference
