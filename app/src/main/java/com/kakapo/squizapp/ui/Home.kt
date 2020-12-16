@@ -2,7 +2,6 @@ package com.kakapo.squizapp.ui
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -11,8 +10,8 @@ import com.kakapo.squizapp.R
 class Home : AppCompatActivity(){
     lateinit var bottomNavigationView:BottomNavigationView
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         bottomNavigationView = findViewById(R.id.navigation)
@@ -32,9 +31,9 @@ class Home : AppCompatActivity(){
         setDefaultFragment()
     }
 
-private fun setDefaultFragment() {
-    val transaction = supportFragmentManager.beginTransaction()
-    transaction.replace(R.id.frame_layout,CategoryFragment.newInstance())
-    transaction.commit()
-}
+    private fun setDefaultFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout,CategoryFragment.newInstance())
+        transaction.commit()
+    }
 }
