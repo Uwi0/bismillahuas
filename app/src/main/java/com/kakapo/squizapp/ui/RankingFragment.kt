@@ -39,7 +39,7 @@ class RankingFragment : Fragment() {
 
         database = FirebaseDatabase.getInstance()
         questionScore = database.reference.child("Question_Score")
-        rankingTable = database.reference.child("Ranking")
+        rankingTable = database.reference.child("Rangking")
 
     }
 
@@ -74,8 +74,7 @@ class RankingFragment : Fragment() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for (data in snapshot.children) {
                             val question = data.getValue(QuestionScore::class.java)
-                            val questionValue = question!!.Score.toString()
-                            sum += questionValue.getScore().toInt()
+                            sum = sum + question!!.Score!! // error
                         }
 
                         val ranking = Ranking(userName, sum)
