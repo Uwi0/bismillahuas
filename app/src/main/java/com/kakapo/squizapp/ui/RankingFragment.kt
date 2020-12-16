@@ -13,7 +13,6 @@ import com.kakapo.squizapp.R
 import com.kakapo.squizapp.adapter.RankingAdapter
 import com.kakapo.squizapp.common.Common
 import com.kakapo.squizapp.interfaceApp.RankingCallback
-import com.kakapo.squizapp.model.Category
 import com.kakapo.squizapp.model.QuestionScore
 import com.kakapo.squizapp.model.Ranking
 
@@ -71,15 +70,15 @@ class RankingFragment : Fragment() {
 
     private fun updateScore(userName: String, callback: RankingCallback<Ranking>){
         questionScore.orderByChild("user").equalTo(userName)
-                .addListenerForSingleValueEvent(object : ValueEventListener{
+                .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        for (data in snapshot.children){
+                        for (data in snapshot.children) {
                             val question = data.getValue(QuestionScore::class.java)
                             val questionValue = question!!.Score.toString()
-                            sum+= questionValue.toLong()
+                            sum += questionValue.getScore().toInt()
                         }
 
-                        val ranking =Ranking(userName, sum)
+                        val ranking = Ranking(userName, sum)
                         callback.callBack(ranking)
                     }
 

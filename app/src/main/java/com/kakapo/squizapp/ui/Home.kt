@@ -20,7 +20,7 @@ class Home : AppCompatActivity(){
             var selectedFragment: Fragment? = null
             when(item.itemId){
                 R.id.action_category -> selectedFragment = CategoryFragment.newInstance()
-                R.id.action_ranking -> selectedFragment = CategoryFragment.newInstance()
+                R.id.action_ranking -> selectedFragment = RankingFragment.newInstance()
             }
 
             val transaction =supportFragmentManager.beginTransaction()
