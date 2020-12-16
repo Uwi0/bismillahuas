@@ -28,7 +28,7 @@ class Home : AppCompatActivity(){
             transaction.commit()
             true
         }
-//        setDefaultFragment()
+        setDefaultFragment()
     }
 
     private fun setDefaultFragment() {

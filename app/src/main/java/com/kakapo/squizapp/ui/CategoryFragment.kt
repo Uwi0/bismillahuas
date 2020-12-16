@@ -25,8 +25,6 @@ class CategoryFragment : Fragment() {
     private lateinit var adapter: CategoryAdapter
     private lateinit var mBase: DatabaseReference
     private lateinit var myFragment: View
-    private lateinit var inflater: LayoutInflater
-    private lateinit var container: ViewGroup
     private lateinit var layoutManager: RecyclerView.LayoutManager
 
 
@@ -34,23 +32,12 @@ class CategoryFragment : Fragment() {
         myFragment = inflater.inflate(R.layout.fragment_category, container, false)
 
         listCategory = myFragment.findViewById(R.id.listCategory)
-//        listCategory.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(container!!.context)
         listCategory.layoutManager = layoutManager
         mBase = FirebaseDatabase.getInstance().reference.child("Category")
         loadCategory()
 
         return myFragment
-    }
-
-    private fun loadCategories(){
-
-        val options:FirebaseRecyclerOptions<Category> = FirebaseRecyclerOptions
-                .Builder<Category>()
-                .setQuery(mBase, Category::class.java)
-                .build()
-        adapter = CategoryAdapter(options)
-        listCategory.adapter = adapter
     }
 
     private fun loadCategory(){
