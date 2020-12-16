@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.kakapo.squizapp.interfaceApp.ItemClickListener
 import com.kakapo.squizapp.R
+import com.kakapo.squizapp.interfaceApp.ItemClickListener
 import com.kakapo.squizapp.model.Category
 
 class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragment() {
@@ -32,6 +34,7 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
 
         database = FirebaseDatabase.getInstance()
         categories =database.getReference("Category")
+        loadCategories()
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
@@ -59,7 +62,29 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
     }
     
     private fun loadCategories() {
+        adapter = object : FirebaseRecyclerAdapter<Category, ViewHolder>(options) {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+                myFragment = LayoutInflater
+                        .from(parent.context)
+                        .inflate(R.layout.fragment_category,parent,false)
 
+                listCategory = myFragment.findViewById(R.id.listCategory)
+                listCategory.setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(parent.context)
+                return ViewHolder(myFragment)
+            }
+
+            override fun onBindViewHolder(holder: ViewHolder, position: Int, model: Category) {
+                holder.categoryName.text = model.Name
+                Glide.with(activity!!).load(model.Image).into(holder.categoryImage)
+
+                holder.setItemOnclickListener(object : ItemClickListener{
+                    override fun onClickListener(view: View, position: Int, isLongClick: Boolean) {
+                        Toast.makeText(holder.itemView.context, "berhasil", Toast.LENGTH_SHORT).show()
+                    }
+                })
+            }
+        }
     }
 
     companion object{
