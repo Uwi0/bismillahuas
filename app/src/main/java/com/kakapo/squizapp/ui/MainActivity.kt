@@ -67,23 +67,23 @@ class MainActivity : AppCompatActivity() {
                             finish()
                         } else {
                             Toast.makeText(
-                                this@MainActivity,
-                                "Wrong Password",
-                                Toast.LENGTH_SHORT
+                                    this@MainActivity,
+                                    "Wrong Password",
+                                    Toast.LENGTH_SHORT
                             ).show()
                         }
                     } else {
                         Toast.makeText(
-                            this@MainActivity,
-                            "Please enter your user name",
-                            Toast.LENGTH_SHORT
+                                this@MainActivity,
+                                "Please enter your user name",
+                                Toast.LENGTH_SHORT
                         ).show()
                     }
                 } else {
                     Toast.makeText(
-                        this@MainActivity,
-                        "User is not exist !",
-                        Toast.LENGTH_SHORT
+                            this@MainActivity,
+                            "User is not exist !",
+                            Toast.LENGTH_SHORT
                     ).show()
                 }
             }
@@ -117,18 +117,25 @@ class MainActivity : AppCompatActivity() {
         alertDialog.setPositiveButton("YES"
         ) { dialog, _ ->
             val user = User(
-                edtNewUserName.text.toString(),
-                edtNewPassword.text.toString(),
-                edtNewEmail.text.toString()
+                    editNewUser.text.toString(),
+                    editNewEmail.text.toString(),
+                    editNewUser.text.toString()
             )
 
-            users.addListenerForSingleValueEvent(object : ValueEventListener{
+            users.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if(dataSnapshot.child(user.userName!!).exists()){
+                    if (dataSnapshot.child(user.userName!!).exists()) {
                         Toast.makeText(
-                            this@MainActivity,
-                            "User already exist !",
-                            Toast.LENGTH_SHORT
+                                this@MainActivity,
+                                "User already exist !",
+                                Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        users.child(user.userName!!).setValue(user)
+                        Toast.makeText(
+                                this@MainActivity,
+                                "User Registration Success !",
+                                Toast.LENGTH_SHORT
                         ).show()
                     }
                 }

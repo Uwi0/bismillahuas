@@ -19,7 +19,7 @@ import com.kakapo.squizapp.R
 import com.kakapo.squizapp.interfaceApp.ItemClickListener
 import com.kakapo.squizapp.model.Category
 
-class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragment() {
+class CategoryFragment() : Fragment() {
 
     lateinit var myFragment: View
     lateinit var listCategory: RecyclerView
@@ -34,7 +34,13 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
 
         database = FirebaseDatabase.getInstance()
         categories =database.getReference("Category")
-        loadCategories()
+
+        val options: FirebaseRecyclerOptions<Category> = FirebaseRecyclerOptions
+                .Builder<Category>()
+                .setQuery(categories, Category::class.java)
+                .build()
+
+        loadCategories(options)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener{
@@ -61,7 +67,7 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
 
     }
     
-    private fun loadCategories() {
+    private fun loadCategories(options: FirebaseRecyclerOptions<Category>) {
         adapter = object : FirebaseRecyclerAdapter<Category, ViewHolder>(options) {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
                 myFragment = LayoutInflater
@@ -91,8 +97,8 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
     }
 
     companion object{
-        fun newInstance(): Companion {
-            return CategoryFragment
+        fun newInstance(): CategoryFragment {
+            return CategoryFragment()
         }
     }
 
