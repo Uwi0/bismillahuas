@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
         alertDialog.setTitle("Sign Up")
         alertDialog.setMessage("Please fill full information")
 
-        val inflater = LayoutInflater.from(parent) // error paling '<'
+        val inflater: LayoutInflater = layoutInflater //paling
         val signUpLayout: View = inflater.inflate(R.layout.sign_up_layout, null)
 
 

@@ -66,7 +66,7 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
                 myFragment = LayoutInflater
                         .from(parent.context)
-                        .inflate(R.layout.fragment_category,parent,false)
+                        .inflate(R.layout.fragment_category, parent, false)
 
                 listCategory = myFragment.findViewById(R.id.listCategory)
                 listCategory.setHasFixedSize(true)
@@ -78,13 +78,16 @@ class CategoryFragment(var options: FirebaseRecyclerOptions<Category>) : Fragmen
                 holder.categoryName.text = model.Name
                 Glide.with(activity!!).load(model.Image).into(holder.categoryImage)
 
-                holder.setItemOnclickListener(object : ItemClickListener{
+                holder.setItemOnclickListener(object : ItemClickListener {
                     override fun onClickListener(view: View, position: Int, isLongClick: Boolean) {
                         Toast.makeText(holder.itemView.context, "berhasil", Toast.LENGTH_SHORT).show()
                     }
                 })
             }
         }
+
+        adapter.notifyDataSetChanged()
+        listCategory.adapter = adapter
     }
 
     companion object{
