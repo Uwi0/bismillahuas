@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Playing"
-    android:background="@drawable/bg_vertical"
+    android:background="@drawable/bg_grad"
     >
 
     <ImageView
@@ -19,16 +19,14 @@
 
     <TextView
         android:id="@+id/question_text"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:fontFamily="serif-monospace"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="25dp"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="invisible" />
     <RelativeLayout
         android:layout_alignParentBottom="true"
         android:layout_margin="30dp"
@@ -51,16 +49,16 @@
 
                 <TextView
                     android:id="@+id/txtScore"
-                    android:textColor="@android:color/white"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="0"
-                    android:textSize="36sp"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="36sp" />
                 <TextView
                     android:id="@+id/txtTotalQuestion"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorPrimaryDark"
                     android:gravity="center_horizontal"
                     android:text="1/40"
                     android:textSize="36sp"
@@ -81,60 +79,35 @@
 
             <Button
                 android:id="@+id/btnAnswerA"
-                android:text="Answer A"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:theme="@style/MyButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:background="#FF3124"
-                android:layout_margin="8dp"
-                android:textAllCaps="false"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:fontFamily="serif-monospace"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_red"
+                android:layout_margin="8dp"
+                android:text="Button" />
+
             <Button
                 android:id="@+id/btnAnswerB"
-                android:text="Answer B"
-                android:textColor="@android:color/white"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:theme="@style/MyButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:background="#ff6d04"
-                android:layout_margin="8dp"
-                android:fontFamily="serif-monospace"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_red"
+                android:layout_margin="8dp"
+                android:text="Button" />
+
             <Button
                 android:id="@+id/btnAnswerC"
-                android:text="Answer C"
-                android:textColor="@android:color/white"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:fontFamily="serif-monospace"
-                android:theme="@style/MyButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:background="#3b4bc4"
-                android:layout_margin="8dp"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_red"
+                android:layout_margin="8dp"
+                android:text="Button" />
+
             <Button
                 android:id="@+id/btnAnswerD"
-                android:text="Answer D"
-                android:fontFamily="serif-monospace"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:theme="@style/MyButton"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:background="#49bf00"
+                android:background="@drawable/bg_red"
                 android:layout_margin="8dp"
-                android:foreground="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Button" />
 
 
         </LinearLayout>

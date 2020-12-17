@@ -2,23 +2,31 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="300dp">
+    android:layout_height="wrap_content"
 
-    <ImageView
-        android:id="@+id/category_image"
+    >
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
-        android:layout_height="match_parent" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/category_name"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:background="#F3416F"
-        android:text="Category Name"
-        />
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_red"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp"
+            android:typeface="normal" />
+    </LinearLayout>
 
 </RelativeLayout>

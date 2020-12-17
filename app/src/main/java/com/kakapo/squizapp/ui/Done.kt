@@ -47,7 +47,7 @@ class Done : AppCompatActivity(){
             val correctAnswer = extra.get(Playing.CORRECT)
 
             textResultScore.text = ("SCORE: $score")
-            textResultScore.text =("PASSED: $correctAnswer/$totalQuestion")
+            getTextResultQuestion.text =("PASSED: $correctAnswer/$totalQuestion")
 
             progressBar.max = totalQuestion as Int
             progressBar.progress = correctAnswer as Int
