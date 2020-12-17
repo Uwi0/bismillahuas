@@ -22,8 +22,9 @@ class ScoreDetail: AppCompatActivity() {
     private lateinit var adapter: ScoreAdapter
     private var viewUser: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_score_detail)
 
         database = FirebaseDatabase.getInstance()
         questionScore = database.reference.child("Question_Score")

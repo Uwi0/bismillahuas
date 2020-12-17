@@ -42,8 +42,8 @@ class Playing : AppCompatActivity(), View.OnClickListener {
     private lateinit var txtQuestionNum: TextView
     private lateinit var questionText: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playing)
 
         //set view
@@ -64,7 +64,6 @@ class Playing : AppCompatActivity(), View.OnClickListener {
         btnB.setOnClickListener(this)
         btnC.setOnClickListener(this)
         btnD.setOnClickListener(this)
-
     }
 
     override fun onClick(view: View?) {
