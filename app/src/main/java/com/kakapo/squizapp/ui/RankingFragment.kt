@@ -74,7 +74,7 @@ class RankingFragment : Fragment() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for (data in snapshot.children) {
                             val question = data.getValue(QuestionScore::class.java)
-                            sum = sum + question!!.Score!! // error
+//                            sum = sum + question!!.Score!! // error
                         }
 
                         val ranking = Ranking(userName, sum)
