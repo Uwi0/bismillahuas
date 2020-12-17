@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_vertical"
-    tools:context="ui.RankingFragment">
+    tools:context=".fragment.RankingFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/title"

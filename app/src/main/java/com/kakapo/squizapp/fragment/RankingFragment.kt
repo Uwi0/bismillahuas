@@ -1,6 +1,7 @@
-package com.kakapo.squizapp.ui
+package com.kakapo.squizapp.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,18 +19,18 @@ import com.kakapo.squizapp.model.Ranking
 
 class RankingFragment : Fragment() {
 
-    lateinit var myFragment: View
-    lateinit var rankingList: RecyclerView
-    lateinit var layoutManager: RecyclerView.LayoutManager
-    lateinit var adapter: RankingAdapter
-    lateinit var database: FirebaseDatabase
-    lateinit var questionScore: DatabaseReference
+    private lateinit var myFragment: View
+    private lateinit var rankingList: RecyclerView
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private lateinit var adapter: RankingAdapter
+    private lateinit var database: FirebaseDatabase
+    private lateinit var questionScore: DatabaseReference
     lateinit var rankingTable: DatabaseReference
 
     var sum: Long = 0
 
     companion object{
-        fun newInstance() : RankingFragment{
+        fun newInstance() : RankingFragment {
             return RankingFragment()
         }
     }
@@ -43,7 +44,7 @@ class RankingFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         myFragment = inflater.inflate(R.layout.fragment_ranking, container, false)
 
         rankingList = myFragment.findViewById(R.id.rankingList)
@@ -53,7 +54,7 @@ class RankingFragment : Fragment() {
 
         updateScore(Common.currentUser.userName!!, object : RankingCallback<Ranking> {
             override fun callBack(ranking: Ranking) {
-                rankingTable.child(ranking.userName!!).setValue(ranking)
+                rankingTable.child(ranking.userName).setValue(ranking)
             }
 
         })
@@ -73,8 +74,8 @@ class RankingFragment : Fragment() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         for (data in snapshot.children) {
-                            val question = data.getValue(QuestionScore::class.java)
-//                            sum = sum + question!!.Score!! // error
+                            val ques = data.getValue(QuestionScore::class.java)!!
+                            sum += ques.Score!!.toInt()
                         }
 
                         val ranking = Ranking(userName, sum)

@@ -1,11 +1,12 @@
 package com.kakapo.squizapp.ui
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kakapo.squizapp.R
+import com.kakapo.squizapp.fragment.CategoryFragment
+import com.kakapo.squizapp.fragment.RankingFragment
 
 class Home : AppCompatActivity(){
     lateinit var bottomNavigationView:BottomNavigationView
@@ -33,7 +34,7 @@ class Home : AppCompatActivity(){
 
     private fun setDefaultFragment() {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_layout,CategoryFragment.newInstance())
+        transaction.replace(R.id.frame_layout, CategoryFragment.newInstance())
         transaction.commit()
     }
 }
