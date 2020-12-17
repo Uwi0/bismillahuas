@@ -2,7 +2,6 @@ package com.kakapo.squizapp.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -25,9 +24,9 @@ class Done : AppCompatActivity(){
     private lateinit var database: FirebaseDatabase
     private lateinit var questionScore: DatabaseReference
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_done)
         database = FirebaseDatabase.getInstance()
         questionScore  = database.reference.child("Question_Score")
         progressBar = findViewById(R.id.doneProgressBar)
@@ -54,13 +53,13 @@ class Done : AppCompatActivity(){
             progressBar.progress = correctAnswer as Int
 
             questionScore.child(("${Common.currentUser.userName}_${Common.categoryId}"))
-                    .setValue(QuestionScore(String.format("%s_%s", Common.currentUser.userName,
-                            Common.categoryId),
-                            Common.currentUser.userName,
-                            score.toString(),
-                            Common.categoryId,
-                            Common.categoryName
-                    ))
+                .setValue(QuestionScore(String.format("%s_%s", Common.currentUser.userName,
+                    Common.categoryId),
+                    Common.currentUser.userName,
+                    score.toString(),
+                    Common.categoryId,
+                    Common.categoryName
+                ))
 
         }
     }
