@@ -2,17 +2,17 @@ package com.kakapo.squizapp.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import com.kakapo.squizapp.common.Common
 import com.kakapo.squizapp.model.Question
 import java.util.*
+import com.kakapo.squizapp.R
 
 class Start : AppCompatActivity() {
 
-    private lateinit var btnPlay: Button
+    private lateinit var btnPlaying: Button
     private lateinit var database: FirebaseDatabase
     private lateinit var question: DatabaseReference
 
@@ -21,11 +21,11 @@ class Start : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         question = database.reference.child("Questions")
-        btnPlay = findViewById(R.id.)
+        btnPlaying = findViewById(R.id.btnPlay)
 
         loadQuestion(Common.categoryId)
 
-        btnPlay.setOnClickListener{
+        btnPlaying.setOnClickListener{
             val intent = Intent(this@Start, Playing::class.java)
             startActivity(intent)
             finish()
