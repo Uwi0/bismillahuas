@@ -34,7 +34,7 @@ class RankingAdapter(
         holder.userName.text = model.userName
         holder.score.text = model.score.toString()
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener{
             val intent = Intent(holder.itemView.context, ScoreDetail::class.java)
             intent.putExtra(VIEW_USER, model.userName)
             holder.itemView.context.startActivity(intent)

@@ -16,11 +16,12 @@ class Start : AppCompatActivity() {
     private lateinit var database: FirebaseDatabase
     private lateinit var question: DatabaseReference
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
         database = FirebaseDatabase.getInstance()
         question = database.reference.child("Questions")
+        btnPlay = findViewById(R.id.)
 
         loadQuestion(Common.categoryId)
 

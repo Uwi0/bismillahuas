@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kakapo.squizapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SQuizApp">
-        <activity android:name=".ui.Home"></activity>
-        <activity android:name=".ui.Done"/>
-        <activity android:name=".ui.Playing"/>
-        <activity android:name=".ui.ScoreDetail"/>
-        <activity android:name=".ui.Start"/>
+        <activity android:name=".ui.Coba"></activity>
+        <activity android:name=".ui.Home" />
+        <activity android:name=".ui.Done" />
+        <activity android:name=".ui.Playing">
+
+        </activity>
+        <activity android:name=".ui.ScoreDetail" />
+        <activity android:name=".ui.Start"></activity>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
