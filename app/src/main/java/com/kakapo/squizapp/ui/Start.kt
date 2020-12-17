@@ -18,13 +18,12 @@ class Start : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_start)
         database = FirebaseDatabase.getInstance()
         question = database.reference.child("Questions")
-        btnPlaying = findViewById(R.id.btnPlay)
 
         loadQuestion(Common.categoryId)
-
+        btnPlaying = findViewById<Button>(R.id.btnPlay)
         btnPlaying.setOnClickListener{
             val intent = Intent(this@Start, Playing::class.java)
             startActivity(intent)

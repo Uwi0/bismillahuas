@@ -43,7 +43,8 @@ class Playing : AppCompatActivity(), View.OnClickListener {
     private lateinit var questionText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-            super.onCreate(savedInstanceState, persistentState)
+        super.onCreate(savedInstanceState, persistentState)
+        setContentView(R.layout.activity_playing)
 
         //set view
         txtScore = findViewById(R.id.txtScore)
