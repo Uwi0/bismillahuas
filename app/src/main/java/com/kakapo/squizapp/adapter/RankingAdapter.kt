@@ -10,7 +10,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.kakapo.squizapp.R
 import com.kakapo.squizapp.model.Ranking
-import com.kakapo.squizapp.ui.ScoreDetail
 
 class RankingAdapter(
         options: FirebaseRecyclerOptions<Ranking>
@@ -33,11 +32,5 @@ class RankingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: Ranking) {
         holder.userName.text = model.userName
         holder.score.text = model.score.toString()
-
-        holder.itemView.setOnClickListener{
-            val intent = Intent(holder.itemView.context, ScoreDetail::class.java)
-            intent.putExtra(VIEW_USER, model.userName)
-            holder.itemView.context.startActivity(intent)
-        }
     }
 }
