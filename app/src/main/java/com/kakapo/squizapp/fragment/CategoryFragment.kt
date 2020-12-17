@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.kakapo.squizapp.R
 import com.kakapo.squizapp.adapter.CategoryAdapter
 import com.kakapo.squizapp.model.Category
@@ -37,11 +38,12 @@ class CategoryFragment : Fragment() {
 
     private fun loadCategory(){
         val options = FirebaseRecyclerOptions.Builder<Category>()
-            .setQuery(mBase,Category::class.java)
+            .setQuery(mBase, Category::class.java)
             .setLifecycleOwner(this)
             .build()
 
         adapter = CategoryAdapter(options)
+        adapter.notifyDataSetChanged()
         listCategory.adapter = adapter
     }
 

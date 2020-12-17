@@ -17,7 +17,7 @@ import java.lang.String
 
 class Done : AppCompatActivity(){
 
-    private lateinit var btnTyrAgain: Button
+    private lateinit var btnTryAgain: Button
     private lateinit var textResultScore : TextView
     private lateinit var getTextResultQuestion: TextView
     private lateinit var progressBar: ProgressBar
@@ -33,6 +33,7 @@ class Done : AppCompatActivity(){
         progressBar = findViewById(R.id.doneProgressBar)
         textResultScore = findViewById(R.id.txtTotalScore)
         getTextResultQuestion = findViewById(R.id.txtTotalQuestion)
+        btnTryAgain = findViewById(R.id.btnTryAgain)
 
         btnTryAgain.setOnClickListener {
             val intent = Intent(this@Done, Home::class.java)

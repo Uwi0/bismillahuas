@@ -10,9 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SQuizApp">
-        <activity android:name=".ui.Home">
-
-        </activity>
+        <activity android:name=".ui.Home"></activity>
+        <activity android:name=".ui.Done"/>
+        <activity android:name=".ui.Playing"/>
+        <activity android:name=".ui.ScoreDetail"/>
+        <activity android:name=".ui.Start"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

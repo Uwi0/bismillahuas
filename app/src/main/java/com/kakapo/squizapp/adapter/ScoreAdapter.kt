@@ -27,5 +27,6 @@ class ScoreAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int, model: QuestionScore) {
         holder.questionName.text = model.CategoryName
         holder.questionScore.text = model.Question_score
+
     }
 }
