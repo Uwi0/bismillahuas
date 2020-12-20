@@ -2,60 +2,72 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-
     app:cardElevation="4dp"
     >
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="15dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewUserName"
-            android:hint="User name"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="24sp"
-            android:paddingLeft="10dp"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:met_baseColor="@color/colorPrimary"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
-            app:met_singleLineEllipsis="true"
-            />
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewPassword"
-            android:paddingLeft="10dp"
-            android:hint="Password"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="24sp"
-            android:inputType="textPassword"
+            android:layout_marginTop="20sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNewUserName"
+                android:hint="User name"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="24sp"
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:met_baseColor="@color/colorPrimary"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
-            app:met_singleLineEllipsis="true"
-            />
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edtNewEmail"
-            android:paddingLeft="10dp"
-            android:hint="Email"
-            android:textColorHint="@color/colorPrimary"
-            android:textSize="24sp"
-            android:inputType="textEmailAddress"
+            android:layout_marginTop="20sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNewPassword"
+                android:paddingLeft="10dp"
+                android:hint="Password"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="24sp"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:met_baseColor="@color/colorPrimary"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="@color/colorPrimary"
-            app:met_singleLineEllipsis="true"
-            />
+            android:layout_marginTop="20sp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNewEmail"
+                android:paddingLeft="10dp"
+                android:hint="Email"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="24sp"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 

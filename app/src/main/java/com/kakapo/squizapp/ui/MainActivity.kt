@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -12,18 +13,17 @@ import com.google.firebase.database.*
 import com.kakapo.squizapp.R
 import com.kakapo.squizapp.common.Common
 import com.kakapo.squizapp.model.User
-import com.rengwuxian.materialedittext.MaterialEditText
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.sign_up_layout.*
 
-class MainActivity : AppCompatActivity() {
+class   MainActivity : AppCompatActivity() {
 
-    private lateinit var editNewUser: MaterialEditText
-    private lateinit var editNewPassword: MaterialEditText
-    private lateinit var editNewEmail: MaterialEditText
+    private lateinit var editNewUser: EditText
+    private lateinit var editNewPassword: EditText
+    private lateinit var editNewEmail: EditText
 
-    private lateinit var editUser: MaterialEditText
-    private lateinit var editPassword: MaterialEditText
+    private lateinit var editUser: EditText
+    private lateinit var editPassword: EditText
 
     private lateinit var btnSignUp: Button
     private lateinit var btnSignIn: Button
@@ -118,8 +118,8 @@ class MainActivity : AppCompatActivity() {
         ) { dialog, _ ->
             val user = User(
                     editNewUser.text.toString(),
-                    editNewEmail.text.toString(),
-                    editNewUser.text.toString()
+                    editNewPassword.text.toString(),
+                    editNewEmail.text.toString()
             )
 
             users.addListenerForSingleValueEvent(object : ValueEventListener {

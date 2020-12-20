@@ -47,32 +47,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtUser"
-                    android:hint="User name"
-                    android:textColorHint="@color/colorPrimary"
-                    android:textSize="24sp"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:met_baseColor="@color/colorPrimary"
-                    app:met_floatingLabel="highlight"
-                    app:met_primaryColor="@color/colorPrimary"
-                    app:met_singleLineEllipsis="true"
-                    />
+                    android:layout_marginTop="20dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/edtPassword"
-                    android:hint="Password"
-                    android:textColorHint="@color/colorPrimary"
-                    android:textSize="24sp"
-                    android:inputType="textPassword"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtUser"
+                        android:hint="User name"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:met_baseColor="@color/colorPrimary"
-                    app:met_floatingLabel="highlight"
-                    app:met_primaryColor="@color/colorPrimary"
-                    app:met_singleLineEllipsis="true"
-                    />
+                    android:layout_marginTop="20dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPassword"
+                        android:hint="Password"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="24sp"
+                        android:inputType="textPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
